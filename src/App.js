@@ -2,16 +2,16 @@ import Home from "./pages/home/Home";
 import Products from './pages/products/Products';
 import About from "./pages/about/About";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Navbar from "./components/Navbar";
 import ErrorPage from './pages/ErrorPage';
 import GlobalsStyles from './components/globals/GlobalsStyles';
+import Navbar from './components/Navbar/Navbar';
 
 
 function App() {
   return (
     <Router>
       <GlobalsStyles />
-      <Navbar />
+      <Navbar/>
       <Switch>
         <Route exact path='/'>
           <Home />
