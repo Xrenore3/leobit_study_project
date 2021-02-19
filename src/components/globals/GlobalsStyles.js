@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { setColor } from './../../assets/styles';
+import { setColor } from './../../utils/styles';
 
 const GlobalsStyles = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lato:wght@400;700&display=swap');

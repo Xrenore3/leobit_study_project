@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { GiBowenKnot } from "react-icons/gi";
 import CartButtons from './CartButtons';
-import { setColor } from './../../assets/styles';
+import { setColor } from './../../utils/styles';
 
 
 const Navbar = () => {
