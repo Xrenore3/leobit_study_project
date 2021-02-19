@@ -2,21 +2,25 @@ import React from 'react';
 import aboutImg from './../../assets/about-img.jpeg'
 import styled from 'styled-components';
 import { setColor } from './../../utils/styles';
+import Banner from './../../components/globals/Banner';
 
 
 const About = () => {
-    return (
+    return (<>
+        <Banner title='about' />
         <Wrapper>
             <img src={aboutImg} alt="table" />
             <div className="title">
                 <h2>Our Story</h2>
                 <div className="under-line"></div>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Ipsam atque enim, debitis error hic assumenda exercitation
-                em molestias pariatur doloribus, saepe dolores sint corrupti
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Ipsam atque enim, debitis error hic assumenda exercitation
+            em molestias pariatur doloribus, saepe dolores sint corrupti
                  voluptatem ratione delectus! Explicabo facere architecto repellat!</p>
         </Wrapper>
+    </>
+
     )
 }
 const Wrapper = styled.section`
