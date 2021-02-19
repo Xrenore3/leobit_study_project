@@ -53,12 +53,16 @@ const Wrapper = styled.nav`
         display: block;
         text-decoration:none;
         color: ${setColor.mainBlack};
-        font-size:1.5rem;
+        font-size:1.1rem;
         text-transform: capitalize;
         font-weight: 500;
         letter-spacing: 2px; 
+        transition: all 0.3s linear;
         &:hover{
-        background: ${setColor.mainGrey}};     
+        background: ${setColor.mainGrey};
+        padding-left:20px;
+        transition: all 0.3s linear;
+        };     
         padding:10px;  
     }
     li {
