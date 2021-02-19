@@ -1,9 +1,13 @@
 import React from 'react'
+import Product from './ProductCard';
 
 const ProductCards= () => {
     return (
         <div>
-            <h1>Hello from products card</h1>
+            <Product/>
+            <Product/>
+            <Product/>
+
             
         </div>
     )
