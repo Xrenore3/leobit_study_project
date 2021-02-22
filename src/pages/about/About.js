@@ -3,6 +3,7 @@ import aboutImg from './../../assets/about-img.jpeg'
 import styled from 'styled-components';
 import { setColor } from './../../utils/styles';
 import Banner from './../../components/globals/Banner';
+import Footer from './../../components/Footer';
 
 
 const About = () => {
@@ -19,6 +20,7 @@ const About = () => {
             em molestias pariatur doloribus, saepe dolores sint corrupti
                  voluptatem ratione delectus! Explicabo facere architecto repellat!</p>
         </Wrapper>
+        <Footer/>
     </>
 
     )

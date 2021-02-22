@@ -8,7 +8,7 @@ function ProductCard() {
         <Wrapper>
             <div className="img-container">
                 <img src={productImg} alt='single room' />
-                <div className="price">$999</div>
+                <div className="price">$999 <span></span> </div>
             </div>
             <div className="room-info">
                 <h4>product name</h4>

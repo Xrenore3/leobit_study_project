@@ -10,7 +10,9 @@ const Navbar = () => {
     return (
         <Wrapper>
             <div className='logo'>
-                <GiBowenKnot className='logoImg' />
+                <Link to='/'>
+                    <GiBowenKnot className='logoImg' />
+                </Link>
                 <span className="logoName">name in process</span>
             </div>
             <ul>
@@ -51,7 +53,6 @@ const Wrapper = styled.nav`
     }
     li a{
         display: block;
-        text-decoration:none;
         color: ${setColor.mainBlack};
         font-size:1.1rem;
         text-transform: capitalize;
@@ -67,9 +68,12 @@ const Wrapper = styled.nav`
     }
     li {
         list-style-type:none;
-        margin: 10px;
-      
-    
+        margin: 10px;  
+    }
+    a{
+        text-decoration:none;
+        color: ${setColor.secondPrimaryColor};
+
 
     }
     
