@@ -1,9 +1,9 @@
 import React from 'react'
-import productImg from './../../../assets/card-img.jpeg'
+import productImg from './../../assets/card-img.jpeg'
 import styled from 'styled-components';
-import { setColor, setBorder, setShadow, setTransition } from './../../../utils/styles';
+import { setColor, setBorder, setShadow, setTransition } from './../../utils/styles';
 
-function ProductCard() {
+function Product() {
     return (
         <Wrapper>
             <div className="img-container">
@@ -12,11 +12,6 @@ function ProductCard() {
             </div>
             <div className="room-info">
                 <h4>product name</h4>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Harum deleniti repellat unde placeat quas, ut
-                    itaque. Temporibus obcaecati commodi necessitatibus.
-                </p>
                 <button  >view</button>
             </div>
         </Wrapper>
@@ -24,16 +19,19 @@ function ProductCard() {
 }
 const Wrapper = styled.article`
     background: ${setColor.mainWhite};
-    margin: 30px auto;
-    max-width: 400px;
+    margin: 30px 5%;
+    max-width: 90%;
     ${setShadow.light};
     ${setTransition};
     .room-info {
+        display: flex;
+        justify-content:space-between;
         h4 {
             text-transform:capitalize;
-            letter-spacing:2px;
+            letter-spacing: 2px;
+            font-weight:400;
         }
-        padding:10px;
+        padding:10px 20px;
     }
     .img-container {
         background: ${setColor.mainBlack};
@@ -74,13 +72,13 @@ const Wrapper = styled.article`
         font-size: 1rem;
         padding:5px 10px;
         text-transform:capitalize;
+        
     }
     &:hover{
         ${setShadow.dark};
         ${setTransition};
     }
 
-
 `
 
-export default ProductCard
+export default Product
