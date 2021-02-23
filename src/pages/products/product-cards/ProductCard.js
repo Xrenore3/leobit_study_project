@@ -24,8 +24,8 @@ function ProductCard() {
 }
 const Wrapper = styled.article`
     background: ${setColor.mainWhite};
-    margin: 30px auto;
-    max-width: 400px;
+    width:90%;
+    margin: 20px auto;
     ${setShadow.light};
     ${setTransition};
     .room-info {

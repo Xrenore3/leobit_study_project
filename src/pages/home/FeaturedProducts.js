@@ -12,7 +12,7 @@ const FeaturedProducts = () => {
                     </h1>
                 <div className="under-line"></div>
             </article>
-            <div className="proct-container">
+            <div className="products-container">
                 <Product/>
                 <Product/>
                 <Product/>
@@ -22,15 +22,18 @@ const FeaturedProducts = () => {
 }
 
 const Wrapper = styled.section`
-
     padding: 50px;
-    background: ${setColor.mainGrey};
-  
+    background: ${setColor.mainGrey}; 
+    .products-container {
+        display:grid;
+        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    }
+     
     .under-line {
-            height:4px;
-            background: ${setColor.primaryColor};
-            width:100px;
-            margin: 10px auto;
+        height:4px;
+        background: ${setColor.primaryColor};
+        width:100px;
+        margin: 10px auto;
     }
     h1 {
         text-align: center;
@@ -38,7 +41,7 @@ const Wrapper = styled.section`
          font-size: 2rem;
          margin-bottom:0;
          text-transform:capitalize;
-     }
+    }
 
 `
 export default FeaturedProducts

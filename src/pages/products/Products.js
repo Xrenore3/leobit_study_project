@@ -3,16 +3,24 @@ import Banner from './../../components/globals/Banner';
 import Filters from './filters/Filters';
 import ProductCards from './product-cards/ProductCardsContainer';
 import Footer from './../../components/Footer';
+import styled from 'styled-components';
 
 const Products = () => {
     return (
         <>
-            <Banner title='products'/>
-            <Filters/>
-            <ProductCards/>
-            <Footer/>
+            <Banner title='products' />
+            <Wrapper>
+                <Filters />
+                <ProductCards />
+            </Wrapper>
+            <Footer />
         </>
     )
 }
+
+const Wrapper = styled.section`
+    display:grid;
+    grid-template-columns: 1.5fr 8.5fr;
+`
 
 export default Products

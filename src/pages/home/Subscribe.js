@@ -2,6 +2,7 @@ import React from 'react'
 import Footer from '../../components/Footer'
 import styled from 'styled-components';
 import { setColor, setTransition, setBorder } from '../../utils/styles';
+import { media } from './../../utils/styles';
 
 const Subscribe = () => {
     return (
@@ -26,7 +27,7 @@ const Subscribe = () => {
 
 const Wrapper = styled.section`
     width:90%;
-    margin: 20px 5%;
+    margin: 20px auto;
     h3 {
          letter-spacing: 3px;
          margin:40px 0 20px;
@@ -67,5 +68,11 @@ const Wrapper = styled.section`
         color:${setColor.secondPrimaryColor};
         font-size: 1rem;
     } 
+    ${media.tablet`
+        width:70%;
+    `}
+    ${media.large`
+        width:60%;
+    `}
 `
 export default Subscribe
