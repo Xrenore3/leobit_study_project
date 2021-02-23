@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { GiBowenKnot } from "react-icons/gi";
 import CartButtons from './CartButtons';
-import { setColor } from './../../utils/styles';
+import { setColor, media } from './../../utils/styles';
 
 
 const Navbar = () => {
@@ -73,9 +73,50 @@ const Wrapper = styled.nav`
     a{
         text-decoration:none;
         color: ${setColor.secondPrimaryColor};
-
-
     }
+    ${media.tablet`   
+        display:grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        align-items: center;
+        .logoImg {
+            display: none;
+        }
+        .logoName {
+            font-size: 1.5rem;
+        }
+        .logo {
+            display:flex;
+            justify-content: start; 
+        }
+        li a,li { 
+            display:inline-block;
+        }
+        ul {
+            margin-top: 20px;
+            text-align: center;
+        }
+        li a { 
+            border-radius: 4px;
+            &:hover{
+                background: ${setColor.mainGrey};
+                padding-left:10px;
+                transition: all 0.3s linear;
+        };
+    `}
+    ${media.desktop`   
+        grid-template-columns: 1fr 1.5fr 1fr;
+        .logoImg {
+            display: block;
+        }
+        .logoName {
+            font-size: 1.8rem;
+        }
+        li a{
+            text-transform:uppercase;
+        }
+
+
+    `}
     
 `
 export default Navbar

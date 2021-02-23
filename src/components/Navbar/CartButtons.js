@@ -2,7 +2,7 @@ import React from 'react'
 import { FaShoppingCart, FaUserMinus, FaUserPlus } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { setColor } from './../../utils/styles';
+import { setColor, media } from './../../utils/styles';
 
 
 const CartButtons = () => {
@@ -10,7 +10,7 @@ const CartButtons = () => {
         <Wrapper>
             <div className='cart-btn-center'>
                 <Link to='/cart' className='cart-btn-global'>
-                    <span >Cart</span>
+                    <span className='cart-name' >Cart</span>
                     <span className='cart-img-container'>
                         <FaShoppingCart />
                         <span className='cart-value'>0</span>
@@ -21,7 +21,8 @@ const CartButtons = () => {
                     type='button'
                     className='cart-btn-global'
                 >
-                    Logout <FaUserMinus />
+                    <span className='button-name'>Logout</span> 
+                    <FaUserMinus />
                 </button>
             </div>
         </Wrapper>
@@ -69,6 +70,18 @@ const Wrapper = styled.div`
     }
     svg {
         margin-left:20px;
+    }
+    ${media.tablet`
+        .cart-name, .button-name{
+            display: none;
+
+        }`
+    }
+    ${media.desktop`
+        .cart-name, .button-name{
+            display: block;
+
+        }`
     }
 
 `
