@@ -15,6 +15,6 @@ const Wrapper = styled.section`
     margin: 0 20px 20px;
     display:grid;
     gap: 20px;
-    grid-template-columns: repeat(auto-fit,minmax(360px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
 `
 export default ProductCards
