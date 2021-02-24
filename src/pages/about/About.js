@@ -1,7 +1,7 @@
 import React from 'react';
 import aboutImg from './../../assets/about-img.jpeg'
 import styled from 'styled-components';
-import { setColor, media } from './../../utils/styles';
+import { media } from './../../utils/styles';
 import Banner from './../../components/globals/Banner';
 import Footer from './../../components/Footer';
 
@@ -58,7 +58,7 @@ const Wrapper = styled.section`
         }
         .under-line{
             height:4px;
-            background: ${setColor.primaryColor};
+            background: ${props=>props.theme.primaryColor};
             width:100px;
         }
     }

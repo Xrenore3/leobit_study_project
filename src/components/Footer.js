@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { setColor } from './../utils/styles';
 const Footer = () => {
   return (
     <Wrapper>
@@ -19,13 +18,13 @@ const Wrapper = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: ${setColor.mainBlack};
+  background: ${props=>props.theme.mainBlack};
   text-align: center;
   span {
-    color: ${setColor.primaryColor};
+    color: ${props=>props.theme.primaryColor};
   }
   h5 {
-    color: ${setColor.mainWhite};
+    color: ${props=>props.theme.mainWhite};
     margin: 0.1rem;
     font-weight: 400;
   }

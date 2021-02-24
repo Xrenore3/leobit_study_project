@@ -1,15 +1,14 @@
 import React from 'react'
 import productImg from './../../../assets/card-img.jpeg'
 import styled from 'styled-components';
-import { setColor, setBorder, setShadow, setTransition } from './../../../utils/styles';
 
 function ProductCard({product}) {
-    const {name} = product
+    const {name,price, image} = product
     return (
         <Wrapper>
             <div className="img-container">
-                <img src={productImg} alt='single room' />
-                <div className="price">$999 <span></span> </div>
+                <img src={image} alt='single room' />
+                <div className="price">{price} $</div>
             </div>
             <div className="room-info">
                 <h4> {name}</h4>
@@ -24,11 +23,11 @@ function ProductCard({product}) {
     )
 }
 const Wrapper = styled.article`
-    background: ${setColor.mainWhite};
+    background: ${props=>props.theme.mainWhite};
     width:90%;
     margin: 20px auto;
-    ${setShadow.light};
-    ${setTransition};
+    ${props=>props.theme.shadow.light};
+    ${props=>props.theme.setTransition()};
     .room-info {
         h4 {
             text-transform:capitalize;
@@ -37,18 +36,20 @@ const Wrapper = styled.article`
         padding:10px;
     }
     .img-container {
-        background: ${setColor.mainBlack};
+        background: ${props=>props.theme.mainBlack};
         position:relative;
         img {
             width:100%;
-            ${setTransition};
+            height:250px;
+            object-fit:cover;
+            ${props=>props.theme.setTransition()};
             display:block;
             &:hover {
             opacity:0.5;
             }
         }
         .price {
-            color: ${setColor.mainWhite};
+            color: ${props=>props.theme.mainWhite};
             position: absolute;
             top:50%;
             left:50%;
@@ -56,29 +57,29 @@ const Wrapper = styled.article`
             opacity: 0;
             letter-spacing: 3px;
             font-size:1.25rem;
-            ${setBorder({ width: '3px', style: 'solid', color: 'white' })};
+            ${props=>props.theme.setBorder({ width: '3px', style: 'solid', color: props.theme.mainWhite })};
             padding:10px;
-            ${setTransition};           
+            ${props=>props.theme.setTransition()};           
         }
         &:hover .price{
                 opacity: 1;
-                ${setTransition};
+                ${props=>props.theme.setTransition()};
             }
     }
     button{
         cursor:pointer;
         border-color:transparent;
         border-radius: 3px;
-        color: ${setColor.secondPrimaryColor};
+        color: ${props=>props.theme.secondPrimaryColor};
         letter-spacing: 2px;
-        background: ${setColor.lightBrown};
+        background: ${props=>props.theme.lightBrown};
         font-size: 1rem;
         padding:5px 10px;
         text-transform:capitalize;
     }
     &:hover{
-        ${setShadow.dark};
-        ${setTransition};
+        ${props=>props.theme.shadow.dark};
+        ${props=>props.theme.setTransition()};
     }
 
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import { setColor, setTransition, setBorder } from '../../utils/styles';
 import Product from './Product';
 import { Link } from 'react-router-dom';
 
@@ -27,7 +26,7 @@ const FeaturedProducts = () => {
 
 const Wrapper = styled.section`
     padding: 50px;
-    background: ${setColor.mainGrey}; 
+    background: ${props=>props.theme.mainGrey}; 
     text-align:center;
     .products-container {
         display:grid;
@@ -36,7 +35,7 @@ const Wrapper = styled.section`
      
     .under-line {
         height:4px;
-        background: ${setColor.primaryColor};
+        background: ${props=>props.theme.primaryColor};
         width:100px;
         margin: 10px auto;
     }
@@ -52,17 +51,17 @@ const Wrapper = styled.section`
             cursor:pointer;
             border-color:transparent;
             border-radius: 3px;
-            color: ${setColor.mainWhite};
+            color: ${props=>props.theme.mainWhite};
             letter-spacing: 2px;
-            background: ${setColor.primaryColor};
+            background: ${props=>props.theme.primaryColor};
             font-size: 1rem;
             padding:10px 15px;
-            ${setTransition};
+            ${props=>props.theme.setTransition()};
             &:hover{
-            background: ${setColor.mainWhite};
-            color: ${setColor.primaryColor};
-            ${setTransition};
-            ${setBorder({ width: '2px', style: 'solid', color: `${setColor.primaryColor}` })};
+                background: ${props=>props.theme.mainWhite};
+                color: ${props=>props.theme.primaryColor};
+                ${props=>props.theme.setTransition()};
+                ${props=>props.theme.setBorder({ width: '2px', style: 'solid', color: `${props.theme.primaryColor}` })};
             }   
         }
 

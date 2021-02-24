@@ -1,5 +1,4 @@
 import React from 'react'
-import Footer from '../../components/Footer'
 import styled from 'styled-components';
 import { setColor, setTransition, setBorder } from '../../utils/styles';
 import { media } from './../../utils/styles';
@@ -33,17 +32,17 @@ const Wrapper = styled.section`
          margin:40px 0 20px;
     }
     p {
-         color:${setColor.secondPrimaryColor};
+         color:${props => props.theme.secondPrimaryColor};
          letter-spacing:1px;
     }
     input {
         padding:10px;
         border-color:transparent;
-        background: ${setColor.lightBrown};
+        background: ${props => props.theme.lightBrown};
         letter-spacing: 1px;
         border-radius:3px 0 0 3px;
         width:70%;
-        ${setBorder({ width: '2px', style: 'solid', color: `${setColor.primaryColor}` })};
+        ${props => props.theme.setBorder({ width: '2px', style: 'solid', color: props.theme.primaryColor })};
 
     }
     button{
@@ -51,21 +50,21 @@ const Wrapper = styled.section`
         width:30%;
         padding:10px;
         border-color:transparent;
-        background: ${setColor.primaryColor};
-        color:${setColor.lightBrown};
+        background: ${props => props.theme.primaryColor};
+        color:${props => props.theme.lightBrown};
         letter-spacing: 2px;
         text-transform: uppercase;
         font-weight:600;
         ${setTransition};
         &:hover{
-            background: ${setColor.mainWhite};
-            ${setTransition};
-            color:${setColor.primaryColor};
-            ${setBorder({ width: '2px', style: 'solid', color: `${setColor.primaryColor}` })};
+            background: ${props => props.theme.mainWhite};
+            ${props => props.theme.setTransition};
+            color:${props => props.theme.primaryColor};
+            ${props => props.theme.setBorder({ width: '2px', style: 'solid', color: props.theme.primaryColor })};
         }
     }
     .subscribe-form input::placeholder{
-        color:${setColor.secondPrimaryColor};
+        color:${props => props.theme.secondPrimaryColor};
         font-size: 1rem;
     } 
     ${media.tablet`

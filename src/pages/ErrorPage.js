@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { setBorder, setColor, setTransition } from '../utils/styles'
 import Footer from '../components/Footer'
 const ErrorPage = () => {
   return (<>
@@ -40,17 +39,17 @@ const Wrapper = styled.main`
             cursor:pointer;
             border-color:transparent;
             border-radius: 3px;
-            color: ${setColor.mainWhite};
+            color: ${props=>props.theme.mainWhite};
             letter-spacing: 2px;
-            background: ${setColor.primaryColor};
+            background: ${props=>props.theme.primaryColor};
             font-size: 1rem;
             padding:10px 15px;
-            ${setTransition};
+            ${props=>props.theme.setTransition()};
             &:hover{
-            background: ${setColor.mainWhite};
-            color: ${setColor.primaryColor};
-            ${setTransition};
-            ${setBorder({ width: '2px', style: 'solid', color: `${setColor.primaryColor}` })};
+            background: ${props=>props.theme.mainWhite};
+            color: ${props=>props.theme.primaryColor};
+            ${props=>props.theme.setTransition()};
+            ${props=>props.theme.setBorder({ width: '2px', style: 'solid', color: props.theme.primaryColor })};
             }   
   }          
 `

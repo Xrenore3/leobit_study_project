@@ -2,7 +2,7 @@ import React from 'react'
 import { FaShoppingCart, FaUserMinus, FaUserPlus } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { setColor, media } from './../../utils/styles';
+import {  media } from './../../utils/styles';
 
 
 const CartButtons = () => {
@@ -40,7 +40,7 @@ const Wrapper = styled.div`
     .cart-img-container {
         display:flex;
         align-items:center;
-        color: ${setColor.primaryColor};
+        color: ${props=>props.theme.primaryColor};
     
     }
     .cart-value {
@@ -50,9 +50,9 @@ const Wrapper = styled.div`
         display: inline-flex;
         align-items: center;
         justify-content:center;
-        background: ${setColor.mainBlack};
+        background: ${props=>props.theme.mainBlack};
         border-radius:50%;
-        color: ${setColor.mainWhite};
+        color: ${props=>props.theme.mainWhite};
         font-size:1rem;
         width: 16px;
         height: 16px;
@@ -64,9 +64,9 @@ const Wrapper = styled.div`
         text-decoration: none;
         font-size:1.5rem;
         letter-spacing:2px;
-        color: ${setColor.mainBlack};
+        color: ${props=>props.theme.mainBlack};
         border: none;
-        background: ${setColor.mainWhite};
+        background: ${props=>props.theme.mainWhite};
     }
     svg {
         margin-left:20px;

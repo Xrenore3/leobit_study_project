@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { GiBowenKnot } from "react-icons/gi";
 import CartButtons from './CartButtons';
-import { setColor, media } from './../../utils/styles';
+import {  media } from './../../utils/styles';
 
 
 const Navbar = () => {
@@ -43,7 +43,7 @@ const Wrapper = styled.nav`
         margin: 20px 20px 10px ;
     }
     .logoName {
-        color: ${setColor.primaryColor};
+        color: ${props=>props.theme.primaryColor};
         font-size: 2rem;
         text-transform: capitalize;
         letter-spacing: 3px;
@@ -53,16 +53,16 @@ const Wrapper = styled.nav`
     }
     li a{
         display: block;
-        color: ${setColor.mainBlack};
+        color: ${props=>props.theme.mainBlack};
         font-size:1.1rem;
         text-transform: capitalize;
         font-weight: 500;
         letter-spacing: 2px; 
-        transition: all 0.3s linear;
+        ${props=>props.theme.setTransition()};
         &:hover{
-        background: ${setColor.mainGrey};
+        background: ${props=>props.theme.mainGrey};
         padding-left:20px;
-        transition: all 0.3s linear;
+        ${props=>props.theme.setTransition()};
         };     
         padding:10px;  
     }
@@ -72,7 +72,7 @@ const Wrapper = styled.nav`
     }
     a{
         text-decoration:none;
-        color: ${setColor.secondPrimaryColor};
+        color: ${props=>props.theme.secondPrimaryColor};
     }
     ${media.tablet`   
         display:grid;
@@ -98,9 +98,9 @@ const Wrapper = styled.nav`
         li a { 
             border-radius: 4px;
             &:hover{
-                background: ${setColor.mainGrey};
+                background: ${props=>props.theme.mainGrey};
                 padding-left:10px;
-                transition: all 0.3s linear;
+                ${props=>props.theme.setTransition()};
         };
     `}
     ${media.desktop`   

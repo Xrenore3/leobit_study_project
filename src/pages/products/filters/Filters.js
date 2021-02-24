@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import { setColor } from './../../../utils/styles';
 
 const Filters = () => {
     return (
@@ -46,7 +45,7 @@ const Wrapper = styled.section`
     .search-input {
         padding:10px;
         border-color:transparent;
-        background: ${setColor.mainGrey};
+        background: ${props=>props.theme.mainGrey};
         letter-spacing: 1px;
         border-radius:3px;
     }
@@ -56,10 +55,10 @@ const Wrapper = styled.section`
     li {
         list-style-type:none;
         margin-left:5px;
-        transition: 0.2s all ease-in-out;
+        ${props=>props.theme.setTransition()};
         &:hover{
             padding-left:10px;
-            transition: 0.2s all ease-in-out;
+            ${props=>props.theme.setTransition()};
         }
 
     }
@@ -67,7 +66,7 @@ const Wrapper = styled.section`
         margin-top:10px;
         padding:5px;
         border-color:transparent;
-        background: ${setColor.mainGrey};
+        background: ${props=>props.theme.mainGrey};
         letter-spacing: 1px;
         border-radius:3px;
     }
@@ -75,9 +74,9 @@ const Wrapper = styled.section`
         cursor:pointer;
         border-color:transparent;
         border-radius: 3px;
-        color: ${setColor.mainWhite};
+        color: ${props=>props.theme.mainWhite};
         letter-spacing: 2px;
-        background: ${setColor.primaryColor};
+        background: ${props=>props.theme.primaryColor};
         font-size: 1rem;
         padding:5px 10px;
     }
