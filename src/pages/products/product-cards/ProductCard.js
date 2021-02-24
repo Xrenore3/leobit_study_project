@@ -3,7 +3,8 @@ import productImg from './../../../assets/card-img.jpeg'
 import styled from 'styled-components';
 import { setColor, setBorder, setShadow, setTransition } from './../../../utils/styles';
 
-function ProductCard() {
+function ProductCard({product}) {
+    const {name} = product
     return (
         <Wrapper>
             <div className="img-container">
@@ -11,7 +12,7 @@ function ProductCard() {
                 <div className="price">$999 <span></span> </div>
             </div>
             <div className="room-info">
-                <h4>product name</h4>
+                <h4> {name}</h4>
                 <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing
                     elit. Harum deleniti repellat unde placeat quas, ut

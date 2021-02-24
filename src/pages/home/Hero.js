@@ -4,12 +4,11 @@ import { setColor, setTransition, setBorder } from '../../utils/styles';
 import { Link } from 'react-router-dom'
 import aboutImg from './../../assets/about-img.jpeg'
 import { media } from './../../utils/styles';
-import { useProductsContext } from '../../context/products';
+import { useProductsContext } from '../../context/products_contex';
 
 
 
 const Hero = () => {
-    const { data,boolean } = useProductsContext();
     return (
         <Wrapper>
             <div className='header-section'>
@@ -26,7 +25,7 @@ const Hero = () => {
                         error amet aliquam ipsam nisi perferendis, nulla repellat!
                     </p>
                     <Link to='/products'>
-                        <button onClick={() => console.log(data)}>shop now</button>
+                        <button >shop now</button>
                     </Link>
                 </article>
                 <article className='about-img'>

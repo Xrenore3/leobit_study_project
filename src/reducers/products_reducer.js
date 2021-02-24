@@ -1,12 +1,10 @@
-import { GET_ALL_PRODUCTS } from './../context/action/products_action';
+import { GET_PRODUCTS } from './../context/action/products_action';
 
 const products_reducer = (state, action) => {
     switch (action.type) {
-        case GET_ALL_PRODUCTS: {
-            return {...state, data:[1,2,3,4,5,6]}
+        case GET_PRODUCTS: {
+            return { ...state, allProducts: action.playload }
         }
-
-
         default:
             return state;
     }

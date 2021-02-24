@@ -1,13 +1,16 @@
 import React from 'react'
 import Product from './ProductCard';
-import  styled  from 'styled-components';
+import styled from 'styled-components';
+import { useProductsContext } from '../../../context/products_contex';
 
-const ProductCards= () => {
+const ProductCards = () => {
+    const { allProducts } = useProductsContext();
+    const products = allProducts.map(product => <Product key={product.id} product={product} />
+
+    )
     return (
         <Wrapper>
-            <Product/>
-            <Product/>
-            <Product/>           
+            {products}
         </Wrapper>
     )
 }
