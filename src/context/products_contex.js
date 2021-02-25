@@ -1,7 +1,7 @@
 import axios from "axios"
 import { createContext, useContext, useEffect, useReducer } from "react"
 import products_reducer from '../reducers/products_reducer'
-import { getAllProductsSuccessAC, getAllProductsRequestAC } from './action/products_action'
+import { getAllProductsSuccessAC, beginAllProductsRequestAC } from './action/products_action'
 const products_url = 'https://course-api.com/react-store-products'
 
 const single_product_url = `https://course-api.com/react-store-single-product?id=`
@@ -17,11 +17,11 @@ const initialState = {
 export const ProductsProvider = ({ children }) => {
     const [state, dispatch] = useReducer(products_reducer, initialState);
 
-    const getProductsRequest = () => dispatch(getAllProductsRequestAC());
+    const beginProductsRequest = () => dispatch(beginAllProductsRequestAC());
     const fetchAllProducts = async (url) => {
-        getProductsRequest()
+        beginProductsRequest()
         const response = await axios.get(url);
-        dispatch(getAllProductsSuccessAC(response.data));j
+        dispatch(getAllProductsSuccessAC(response.data));
     }
 
     useEffect(() => {
