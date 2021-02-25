@@ -28,6 +28,7 @@ const Wrapper = styled.article`
     margin: 20px auto;
     ${props=>props.theme.shadow.light};
     ${props=>props.theme.setTransition()};
+    border-radius: 4px;
     .room-info {
         h4 {
             text-transform:capitalize;
@@ -36,9 +37,11 @@ const Wrapper = styled.article`
         padding:10px;
     }
     .img-container {
+        border-radius: 4px;
         background: ${props=>props.theme.mainBlack};
         position:relative;
         img {
+            border-radius: 4px 4px 0 0;
             width:100%;
             height:250px;
             object-fit:cover;

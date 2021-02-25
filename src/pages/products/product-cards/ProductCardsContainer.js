@@ -2,15 +2,16 @@ import React from 'react'
 import Product from './ProductCard';
 import styled from 'styled-components';
 import { useProductsContext } from '../../../context/products_contex';
+import Preloader from '../../../components/globals/Preloader';
 
 const ProductCards = () => {
-    const { allProducts } = useProductsContext();
+    const { allProducts, allProductsLoading } = useProductsContext();
     const products = allProducts.map(product => <Product key={product.id} product={product} />
 
     )
     return (
         <Wrapper>
-            {products}
+            {allProductsLoading? <Preloader/>: products}
         </Wrapper>
     )
 }

@@ -2,8 +2,15 @@ import React from 'react'
 import styled from 'styled-components';
 import Product from './Product';
 import { Link } from 'react-router-dom';
+import { useProductsContext } from '../../context/products_contex';
 
 const FeaturedProducts = () => {
+    const { allProducts } = useProductsContext();
+    const threeProductsView = allProducts.filter((item,index)=>index<3);
+    const products = threeProductsView.map(product => {
+        const { name, price,id  } = product
+        return <Product name={name} price={price} key={id} />
+    })
     return (
         <Wrapper>
             <article>
@@ -13,9 +20,7 @@ const FeaturedProducts = () => {
                 <div className="under-line"></div>
             </article>
             <div className="products-container">
-                <Product/>
-                <Product/>
-                <Product/>
+                {products}
             </div>
             <Link to='/products'>
                 <button>all products</button>
@@ -26,7 +31,7 @@ const FeaturedProducts = () => {
 
 const Wrapper = styled.section`
     padding: 50px;
-    background: ${props=>props.theme.mainGrey}; 
+    background: ${props => props.theme.mainGrey}; 
     text-align:center;
     .products-container {
         display:grid;
@@ -35,7 +40,7 @@ const Wrapper = styled.section`
      
     .under-line {
         height:4px;
-        background: ${props=>props.theme.primaryColor};
+        background: ${props => props.theme.primaryColor};
         width:100px;
         margin: 10px auto;
     }
@@ -51,17 +56,17 @@ const Wrapper = styled.section`
             cursor:pointer;
             border-color:transparent;
             border-radius: 3px;
-            color: ${props=>props.theme.mainWhite};
+            color: ${props => props.theme.mainWhite};
             letter-spacing: 2px;
-            background: ${props=>props.theme.primaryColor};
+            background: ${props => props.theme.primaryColor};
             font-size: 1rem;
             padding:10px 15px;
-            ${props=>props.theme.setTransition()};
+            ${props => props.theme.setTransition()};
             &:hover{
-                background: ${props=>props.theme.mainWhite};
-                color: ${props=>props.theme.primaryColor};
-                ${props=>props.theme.setTransition()};
-                ${props=>props.theme.setBorder({ width: '2px', style: 'solid', color: `${props.theme.primaryColor}` })};
+                background: ${props => props.theme.mainWhite};
+                color: ${props => props.theme.primaryColor};
+                ${props => props.theme.setTransition()};
+                ${props => props.theme.setBorder({ width: '2px', style: 'solid', color: `${props.theme.primaryColor}` })};
             }   
         }
 

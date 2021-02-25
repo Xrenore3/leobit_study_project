@@ -2,15 +2,15 @@ import React from 'react'
 import productImg from './../../assets/card-img.jpeg'
 import styled from 'styled-components';
 
-function Product() {
+function Product({name,price}) {
     return (
         <Wrapper>
             <div className="img-container">
                 <img src={productImg} alt='single room' />
-                <div className="price">$999  </div>
+                <div className="price">${price}  </div>
             </div>
             <div className="room-info">
-                <h4>product name</h4>
+                <h4>{name}</h4>
                 <button  >view</button>
             </div>
         </Wrapper>
@@ -25,6 +25,7 @@ const Wrapper = styled.article`
     .room-info {
         display: flex;
         justify-content:space-between;
+        align-items:center;
         h4 {
             text-transform:capitalize;
             letter-spacing: 2px;

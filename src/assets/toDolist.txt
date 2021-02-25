@@ -1,0 +1,4 @@
+- Create global button component;
+- Fix product card hover when cursor is on price section;
+- fix product name and price in Home page;
+
