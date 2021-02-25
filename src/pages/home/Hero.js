@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import aboutImg from './../../assets/about-img.jpeg'
 import { media } from './../../utils/styles';
+import PrimaryButton from './../../components/globals/PrimaryButton';
 
 
 
@@ -23,7 +24,7 @@ const Hero = () => {
                         error amet aliquam ipsam nisi perferendis, nulla repellat!
                     </p>
                     <Link to='/products'>
-                        <button >shop now</button>
+                        <PrimaryButton title='shop now'/>
                     </Link>
                 </article>
                 <article className='about-img'>
@@ -52,8 +53,6 @@ const Wrapper = styled.section`
         border-radius: 5px;
         }
     }
-  
-
     .header-about{
         h1 {
             letter-spacing: 3px;
@@ -69,25 +68,7 @@ const Wrapper = styled.section`
             background: ${props => props.theme.primaryColor};
             width:100px;
             margin: 10px 0 20px;
-        }
-        button {
-            text-transform: uppercase;
-            cursor:pointer;
-            border-color:transparent;
-            border-radius: 3px;
-            color: ${props => props.theme.mainWhite};
-            letter-spacing: 2px;
-            background: ${props => props.theme.primaryColor};
-            font-size: 1rem;
-            padding:10px 15px;
-            ${props => props.theme.setTransition()};
-            &:hover{
-            background: ${props => props.theme.mainWhite};
-            color: ${props => props.theme.primaryColor};
-            ${props => props.theme.setTransition()};
-            ${props => props.theme.setBorder({ width: '2px', style: 'solid', color: `${props.theme.primaryColor}` })};
-            }   
-        }
+        }       
     }
     ${media.desktop`
         .about-img {
@@ -97,6 +78,5 @@ const Wrapper = styled.section`
             grid-template-columns: 1fr 1fr;
         }
     `}
-
 `
 export default Hero

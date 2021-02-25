@@ -55,7 +55,7 @@ const Wrapper = styled.section`
         letter-spacing: 2px;
         text-transform: uppercase;
         font-weight:600;
-        ${setTransition};
+        ${props => props.theme.setTransition()};
         &:hover{
             background: ${props => props.theme.mainWhite};
             ${props => props.theme.setTransition};

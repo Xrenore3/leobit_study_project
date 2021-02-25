@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Product from './Product';
 import { Link } from 'react-router-dom';
 import { useProductsContext } from '../../context/products_contex';
+import PrimaryButton from './../../components/globals/PrimaryButton';
 
 const FeaturedProducts = () => {
     const { allProducts } = useProductsContext();
@@ -23,7 +24,7 @@ const FeaturedProducts = () => {
                 {products}
             </div>
             <Link to='/products'>
-                <button>all products</button>
+                <PrimaryButton title='all products'/>
             </Link>
         </Wrapper>
     )
@@ -51,24 +52,5 @@ const Wrapper = styled.section`
          margin-bottom:0;
          text-transform:capitalize;
     }
-    button {
-            text-transform: uppercase;
-            cursor:pointer;
-            border-color:transparent;
-            border-radius: 3px;
-            color: ${props => props.theme.mainWhite};
-            letter-spacing: 2px;
-            background: ${props => props.theme.primaryColor};
-            font-size: 1rem;
-            padding:10px 15px;
-            ${props => props.theme.setTransition()};
-            &:hover{
-                background: ${props => props.theme.mainWhite};
-                color: ${props => props.theme.primaryColor};
-                ${props => props.theme.setTransition()};
-                ${props => props.theme.setBorder({ width: '2px', style: 'solid', color: `${props.theme.primaryColor}` })};
-            }   
-        }
-
 `
 export default FeaturedProducts

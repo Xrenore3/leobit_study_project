@@ -1,4 +1,4 @@
-import { GET_PRODUCTS_SUCCESS, BEGIN_ALL_PRODUCTS_REQUEST } from './../context/action/products_action';
+import { GET_PRODUCTS_SUCCESS, BEGIN_ALL_PRODUCTS_REQUEST, HANDLE_FETCH_ERROR } from './../context/action/products_action';
 
 const products_reducer = (state, action) => {
     switch (action.type) {
@@ -7,6 +7,9 @@ const products_reducer = (state, action) => {
         }
         case BEGIN_ALL_PRODUCTS_REQUEST: {
             return { ...state, allProductsLoading: true }
+        }
+        case HANDLE_FETCH_ERROR: {
+            return { ...state, error: action.playload }
         }
         default:
             return state;

@@ -1,6 +1,7 @@
 import React from 'react'
 import productImg from './../../assets/card-img.jpeg'
 import styled from 'styled-components';
+import PrimaryButton from './../../components/globals/PrimaryButton';
 
 function Product({name,price}) {
     return (
@@ -11,7 +12,7 @@ function Product({name,price}) {
             </div>
             <div className="room-info">
                 <h4>{name}</h4>
-                <button  >view</button>
+                <PrimaryButton title='view'/>
             </div>
         </Wrapper>
     )

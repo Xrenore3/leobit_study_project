@@ -16,11 +16,25 @@ export const mainTheme = {
     setTransition: ({ property = 'all', time = '0.3s', timing = 'ease-in-out' } = {}) => {
         return `transition: ${property} ${time} ${timing};`
     },
-    setBorder:function ({ width = '2px', style = 'solid', color = this.mainBlack } = {})  {
+    setBorder: function ({ width = '2px', style = 'solid', color = this.mainBlack } = {}) {
         return `border: ${width} ${style} ${color};`
     },
-   
-
-    
-
+    // media: function () {
+    //     const sizes = {
+    //         large: 1200,
+    //         desktop: 992,
+    //         tablet: 768,
+    //         phone: 576
+    //     }
+    //     const mediaQueries = Object.keys(sizes).reduce(function (acc, label) {
+    //         acc[label] = function (...args) {
+    //             css`
+    //         @media (min-width:${sizes[label]}px){
+    //             ${css(...args)}
+    //         }
+    //     `}
+    //         return acc
+    //     }, {})
+    //     return mediaQueries
+    // }
 }

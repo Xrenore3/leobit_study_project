@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { setColor } from './../../utils/styles';
 
 const GlobalsStyles = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Courgette&family=Lato:wght@400;700&display=swap');
@@ -12,7 +11,7 @@ const GlobalsStyles = createGlobalStyle`
 }
 body{
     font-size:100%;
-    color:${setColor.mainBlack};
+    color:${props=>props.theme.mainBlack};
     background: white;
 }
 h1 {
@@ -22,7 +21,6 @@ h1 {
 }
 h2 {
     font-size:2em;
-    margin-bottom:0.75em;
 }
 h3 {
     font-size:1.5em;
