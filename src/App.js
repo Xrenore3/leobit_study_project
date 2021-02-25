@@ -2,11 +2,12 @@ import Home from "./pages/home/Home";
 import Products from './pages/products/Products';
 import About from "./pages/about/About";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import ErrorPage from './pages/ErrorPage';
+import ErrorPage from './pages/error/ErrorPage';
 import GlobalsStyles from './components/globals/GlobalsStyles';
 import Navbar from './components/Navbar/Navbar';
 import { ThemeProvider } from "styled-components";
 import {mainTheme} from './utils/main_theme'
+import SingleProducts from './pages/single_product/SingleProducts';
 
 function App() {
   return (
@@ -21,8 +22,11 @@ function App() {
           <Route path='/about'>
             <About />
           </Route>
-          <Route path='/products'>
+          <Route exact path='/products'>
             <Products />
+          </Route>
+          <Route path='/products/:id'>
+            <SingleProducts/>
           </Route>
           <Route path='*'>
             <ErrorPage />
