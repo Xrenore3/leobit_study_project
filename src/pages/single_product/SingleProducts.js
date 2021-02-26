@@ -6,62 +6,66 @@ import PrimaryButton from './../../components/globals/PrimaryButton';
 import styled from 'styled-components';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { media } from './../../utils/styles';
 
 const SingleProducts = () => {
     return (<>
         <Banner title='product / name product' />
         <Wrapper>
-            <div className="btn-prm-center">
-                <Link to='/products'>
-                    <PrimaryButton title='back to products' />
-                </Link>
-            </div>
-            <section className='img-container'>
-                <img src={image} alt="main img" className='main-img' />
-                <div className='small-img-container'>
-                    <img src={image} alt="main img" className='small-img' />
-                    <img src={image} alt="main img" className='small-img' />
-                    <img src={image} alt="main img" className='small-img' />
-                    <img src={image} alt="main img" className='small-img' />
-                    <img src={image} alt="main img" className='small-img' />
-                </div>
-            </section>
-            <section className='info-container'>
-                <h2 >
-                    some name
+            <Link to='/products'>
+                <PrimaryButton title='back to products' />
+            </Link>
+            <div className="main-container">
+                <section className='img-container'>
+                    <img src={image} alt="main img" className='main-img' />
+                    <div className='small-img-container'>
+                        <img src={image} alt="main img" className='small-img' />
+                        <img src={image} alt="main img" className='small-img' />
+                        <img src={image} alt="main img" className='small-img' />
+                        <img src={image} alt="main img" className='small-img' />
+                        <img src={image} alt="main img" className='small-img' />
+                    </div>
+                </section>
+                <section className='info-container'>
+                    <h2 >
+                        some name
                 </h2>
-                <h5 className='price'>$ 56878</h5>
-                <p className='description'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias possimus corrupti ipsa,
-                    consequatur minima atque odio repellendus autem.
-                    Harum atque dolorum necessitatibus corrupti excepturi optio dolorem nulla quis non sunt?
+                    <h5 className='price'>$ 56878</h5>
+                    <p className='description'>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus ut dicta quibusdam 
+                        autem. Fugiat perferendis accusantium hic. Veritatis, deserunt laborum, repudiandae ipsa 
+                        repellendus beatae sapiente commodi magnam nostrum tenetur in.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias possimus corrupti ipsa,
+                        consequatur minima atque odio repellendus autem. 
+                        Harum atque dolorum necessitatibus corrupti excepturi optio dolorem nulla quis non sunt?
                 </p>
-                <div className="info">
-                    <h5>avaible:</h5>
-                    <p>out of stock</p>
-                </div>
-                <div className="info">
-                    <h5>brand:</h5>
-                    <p>ikea</p>
-                </div>
-                <hr />
-                <article >
-                    <div className="colors">
-                        <span>colors: </span>
-                        <button> </button>
+                    <div className="info">
+                        <h5>avaible:</h5>
+                        <p>out of stock</p>
                     </div>
-                    <div className="btn-container">
-                        <button className='plus-minus-btn'>
-                            <FaMinus />
-                        </button>
-                        <span>1</span>
-                        <button className='plus-minus-btn'>
-                            <FaPlus />
-                        </button>
+                    <div className="info">
+                        <h5>brand:</h5>
+                        <p>ikea</p>
                     </div>
-                    <PrimaryButton title='add to cart' />
-                </article>
-            </section>
+                    <hr />
+                    <article >
+                        <div className="colors">
+                            <span>colors: </span>
+                            <button> </button>
+                        </div>
+                        <div className="btn-container">
+                            <button className='plus-minus-btn'>
+                                <FaMinus />
+                            </button>
+                            <span>1</span>
+                            <button className='plus-minus-btn'>
+                                <FaPlus />
+                            </button>
+                        </div>
+                        <PrimaryButton title='add to cart' />
+                    </article>
+                </section>
+            </div>
         </Wrapper>
         <Footer />
 
@@ -170,7 +174,20 @@ const Wrapper = styled.main`
         }
         
     }
+    .main-container {
+            display:grid;
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+    ${media.desktop`
+        .main-container {
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            align-items:center;
+            gap: 50px;
 
+        }
+    `}
     
 
 `

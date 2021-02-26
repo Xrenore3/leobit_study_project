@@ -16,7 +16,7 @@ export const mainTheme = {
     setTransition: ({ property = 'all', time = '0.3s', timing = 'ease-in-out' } = {}) => {
         return `transition: ${property} ${time} ${timing};`
     },
-    setBorder: function ({ width = '2px', style = 'solid', color = this.mainBlack } = {}) {
+    setBorder: function ({ width = '2px', style = 'solid', color = 'black' } = {}) {
         return `border: ${width} ${style} ${color};`
     },
     // media: function () {
