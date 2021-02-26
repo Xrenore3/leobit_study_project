@@ -35,7 +35,6 @@ h4 {
 }
 h5 {
     font-size:1em;
-    margin-bottom:1.5em;
     font-weight:bold;
 
 }
