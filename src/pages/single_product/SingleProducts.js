@@ -5,13 +5,16 @@ import image from './../../assets/single_product.jpg'
 import PrimaryButton from './../../components/globals/PrimaryButton';
 import styled from 'styled-components';
 import { FaPlus, FaMinus } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const SingleProducts = () => {
     return (<>
         <Banner title='product / name product' />
         <Wrapper>
             <div className="btn-prm-center">
-                <PrimaryButton title='back to products' />
+                <Link to='/products'>
+                    <PrimaryButton title='back to products' />
+                </Link>
             </div>
             <section className='img-container'>
                 <img src={image} alt="main img" className='main-img' />

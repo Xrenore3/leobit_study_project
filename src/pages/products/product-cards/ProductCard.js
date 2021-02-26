@@ -1,7 +1,7 @@
 import React from 'react'
-import productImg from './../../../assets/card-img.jpeg'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import PrimaryButton from '../../../components/globals/PrimaryButton';
 
 function ProductCard({ product }) {
     const { name, price, image,id } = product
