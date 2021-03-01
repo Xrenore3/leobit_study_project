@@ -1,6 +1,6 @@
 import axios from "axios"
 import { createContext, useContext, useEffect, useReducer } from "react"
-import products_reducer from '../reducers/products_reducer'
+import products_reducer from './reducers/products_reducer'
 import { getAllProductsSuccessAC, beginProductsRequestAC, handleFetchErrorAC, getSingleProductSuccessAC } from './action/products_action'
 const products_url = 'https://course-api.com/react-store-products'
 

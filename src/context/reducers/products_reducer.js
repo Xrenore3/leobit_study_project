@@ -1,4 +1,4 @@
-import { GET_PRODUCTS_SUCCESS, BEGIN_PRODUCTS_REQUEST, HANDLE_FETCH_ERROR, GET_SINGLE_PRODUCT_SUCCESS } from './../context/action/products_action';
+import { GET_PRODUCTS_SUCCESS, BEGIN_PRODUCTS_REQUEST, HANDLE_FETCH_ERROR, GET_SINGLE_PRODUCT_SUCCESS } from './../action/products_action';
 
 const products_reducer = (state, action) => {
     switch (action.type) {

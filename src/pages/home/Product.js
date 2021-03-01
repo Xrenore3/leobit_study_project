@@ -27,6 +27,7 @@ const Wrapper = styled.article`
     ${props => props.theme.shadow.light};
     ${props => props.theme.setTransition()};
     .room-info {
+        padding:10px 20px;
         display: flex;
         justify-content:space-between;
         align-items:center;
@@ -35,7 +36,9 @@ const Wrapper = styled.article`
             letter-spacing: 2px;
             font-weight:400;
         }
-        padding:10px 20px;
+        button {
+            text-transform:capitalize;
+        }
     }
     .img-container {
         background: ${props => props.theme.mainBlack};
