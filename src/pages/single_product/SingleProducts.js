@@ -5,10 +5,27 @@ import image from './../../assets/single_product.jpg'
 import PrimaryButton from './../../components/globals/PrimaryButton';
 import styled from 'styled-components';
 import { FaPlus, FaMinus } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { media } from './../../utils/styles';
+import { useProductsContext } from '../../context/products_contex';
+import { useEffect } from 'react';
+import ImageContainer from './ImageContainer';
+import Preloader from './../../components/globals/Preloader';
+
 
 const SingleProducts = () => {
+    const single_product_url = `https://course-api.com/react-store-single-product?id=`;
+    const {id} = useParams();
+
+    const { singleProduct, allProductsLoading, fetchSingleProducts } = useProductsContext();
+    useEffect(() => {
+        fetchSingleProducts(`${single_product_url}${id}`)
+    }, [id]);
+    const { name, price, images } = singleProduct;
+    if (allProductsLoading){
+        return <Preloader/>
+    }
+
     return (<>
         <Banner title='product / name product' />
         <Wrapper>
@@ -16,27 +33,18 @@ const SingleProducts = () => {
                 <PrimaryButton title='back to products' />
             </Link>
             <div className="main-container">
-                <section className='img-container'>
-                    <img src={image} alt="main img" className='main-img' />
-                    <div className='small-img-container'>
-                        <img src={image} alt="main img" className='small-img' />
-                        <img src={image} alt="main img" className='small-img' />
-                        <img src={image} alt="main img" className='small-img' />
-                        <img src={image} alt="main img" className='small-img' />
-                        <img src={image} alt="main img" className='small-img' />
-                    </div>
-                </section>
+                <ImageContainer images={images} allProductsLoading={allProductsLoading}/>
                 <section className='info-container'>
                     <h2 >
-                        some name
+                        {name}
                 </h2>
-                    <h5 className='price'>$ 56878</h5>
+                    <h5 className='price'>$ {price}</h5>
                     <p className='description'>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus ut dicta quibusdam 
-                        autem. Fugiat perferendis accusantium hic. Veritatis, deserunt laborum, repudiandae ipsa 
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus ut dicta quibusdam
+                        autem. Fugiat perferendis accusantium hic. Veritatis, deserunt laborum, repudiandae ipsa
                         repellendus beatae sapiente commodi magnam nostrum tenetur in.
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias possimus corrupti ipsa,
-                        consequatur minima atque odio repellendus autem. 
+                        consequatur minima atque odio repellendus autem.
                         Harum atque dolorum necessitatibus corrupti excepturi optio dolorem nulla quis non sunt?
                 </p>
                     <div className="info">
@@ -76,29 +84,7 @@ const SingleProducts = () => {
 const Wrapper = styled.main`
     width:90%;
     margin: 0 auto 40px;
-    img{
-        object-fit:cover;
-    }
-    .img-container{
-        margin-top:30px;
-        .main-img {
-        display:block;
-        width: 100%;
-        border-radius:4px;
-        height:500px;
-        }
-        .small-img-container{
-            margin-top:15px;
-            .small-img{
-                width:100%;
-                border-radius:4px;
-                height:100px
-            }
-            display:grid;
-            grid-template-columns: repeat(5,1fr);
-            gap:15px;
-        }
-    }
+    
     .info-container{
         h2 {
             text-transform: capitalize;
