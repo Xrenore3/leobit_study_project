@@ -16,18 +16,18 @@ function App() {
         <GlobalsStyles />
         <Navbar />
         <Switch>
-          <Route exact path='/'>
+          {/* <Route exact path='/'>
             <Home />
-          </Route>
+          </Route> */}
           <Route path='/about'>
             <About />
           </Route>
           <Route exact path='/products'>
             <Products />
           </Route>
-          <Route path='/products/:id'>
+          {/* <Route path='/products/:id'>
             <SingleProducts/>
-          </Route>
+          </Route> */}
           <Route path='*'>
             <ErrorPage />
           </Route>

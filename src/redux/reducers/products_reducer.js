@@ -1,4 +1,4 @@
-import { GET_PRODUCTS_SUCCESS, BEGIN_PRODUCTS_REQUEST, HANDLE_FETCH_ERROR, GET_SINGLE_PRODUCT_SUCCESS } from './../actions/products_action';
+import { GET_PRODUCTS_SUCCESS, SET_IS_LOADING, HANDLE_FETCH_ERROR, GET_SINGLE_PRODUCT_SUCCESS } from './../actions/products_action';
 
 const initialState = {
     allProducts: [],
@@ -13,7 +13,7 @@ const products_reducer = (state = initialState, action) => {
         case GET_PRODUCTS_SUCCESS: {
             return { ...state, allProducts: action.playload, allProductsLoading: false }
         }
-        case BEGIN_PRODUCTS_REQUEST: {
+        case SET_IS_LOADING: {
             return { ...state, allProductsLoading: true }
         }
         case HANDLE_FETCH_ERROR: {
@@ -26,5 +26,23 @@ const products_reducer = (state = initialState, action) => {
             return state;
     }
 }
+
+export const getAllProductsSuccess = (products) => ({
+    type: GET_PRODUCTS_SUCCESS,
+    playload: products
+})
+export const setIsLoading = () => ({
+    type: SET_IS_LOADING
+})
+export const handleFetchError = (error) => ({
+    type: HANDLE_FETCH_ERROR,
+    playload: error
+})
+export const getSingleProductSuccess = (product) => ({
+    type: GET_SINGLE_PRODUCT_SUCCESS,
+    playload: product
+})
+
+
 
 export default products_reducer

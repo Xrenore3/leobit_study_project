@@ -1,17 +1,20 @@
 import React from 'react'
 import Product from './ProductCard';
 import styled from 'styled-components';
-import { useProductsContext } from '../../../context/products_contex';
 import Preloader from '../../../components/globals/Preloader';
+import { connect } from 'react-redux';
+import { useEffect } from 'react';
+import productsFetchData from './../../../assets/products_mock_data'
+import { getAllProductsSuccess } from './../../../redux/reducers/products_reducer';
 
-const ProductCards = () => {
-    const { allProducts, allProductsLoading } = useProductsContext();
+const ProductCards = ({ allProducts, allProductsLoading, getAllProductsSuccess }) => {
+
     const products = allProducts.map(product => <Product key={product.id} product={product} />
-
     )
+    useEffect(() => { getAllProductsSuccess(productsFetchData) }, [])
     return (
         <Wrapper>
-            {allProductsLoading? <Preloader/>: products}
+            {allProductsLoading ? <Preloader /> : products}
         </Wrapper>
     )
 }
@@ -21,4 +24,12 @@ const Wrapper = styled.section`
     gap: 20px;
     grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
 `
-export default ProductCards
+const mapStateToProps = (state) => ({
+    allProducts: state.productsData.allProducts,
+    allProductsLoading: state.productsData.allProductsLoading
+
+
+
+})
+
+export default connect(mapStateToProps, { getAllProductsSuccess })(ProductCards)

@@ -2,11 +2,10 @@ import React from 'react'
 import styled from 'styled-components';
 import Product from './Product';
 import { Link } from 'react-router-dom';
-import { useProductsContext } from '../../context/products_contex';
 import PrimaryButton from './../../components/globals/PrimaryButton';
+import { connect } from 'react-redux';
 
-const FeaturedProducts = () => {
-    const { allProducts } = useProductsContext();
+const FeaturedProducts = ({allProducts}) => {
     const threeProductsView = allProducts.filter((item,index)=>index<3);
     const products = threeProductsView.map(product => {
         const { name, price,id  } = product
@@ -53,4 +52,8 @@ const Wrapper = styled.section`
          text-transform:capitalize;
     }
 `
-export default FeaturedProducts
+
+const mapStateToProps = (state) => ({
+    allProducts: state.productsData.allProducts
+})
+export default connect(mapStateToProps,{})(FeaturedProducts)

@@ -1,8 +1,12 @@
-import { combineReducers } from "redux";
-import {products_reducer} from './reducers/products_reducer'
+import { combineReducers, createStore } from "redux";
+import productsReducer from './reducers/products_reducer'
 
-const store = combineReducers(products_reducer)
+const reducers = combineReducers(
+    {
+        productsData: productsReducer
+    });
+const store = createStore(reducers);
 
 window.store = store;
 
-export default  store;
+export default store;
