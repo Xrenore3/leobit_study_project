@@ -26,21 +26,6 @@ const products_reducer = (state = initialState, action) => {
     }
 }
 
-export const getAllProductsSuccess = (products) => ({
-    type: GET_PRODUCTS_SUCCESS,
-    playload: products
-})
-export const setIsLoading = () => ({
-    type: SET_IS_LOADING
-})
-export const handleFetchError = (error) => ({
-    type: HANDLE_FETCH_ERROR,
-    playload: error
-})
-export const getSingleProductSuccess = (product) => ({
-    type: GET_SINGLE_PRODUCT_SUCCESS,
-    playload: product
-})
 
 
 

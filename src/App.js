@@ -11,13 +11,13 @@ import SingleProducts from './pages/single_product/SingleProducts';
 import productsFetchData from './assets/products_mock_data'
 import { useEffect } from 'react';
 import { connect } from "react-redux";
-import { getAllProductsSuccess } from './redux/reducers/products_reducer';
+import { setIsLoading } from './redux/actions/products_action';
 
-const App = ({ allProducts, allProductsLoading, getAllProductsSuccess }) => {
+const App = ({ allProducts, allProductsLoading, setIsLoading }) => {
 
   useEffect(() => {
     console.log('hello from app')
-    getAllProductsSuccess(productsFetchData)
+    setIsLoading()
   }, [])
 
   return (
@@ -51,4 +51,4 @@ const mapStateToProps = (state) => ({
   allProductsLoading: state.productsData.allProductsLoading
 })
 
-export default connect(mapStateToProps, { getAllProductsSuccess })(App)
+export default connect(mapStateToProps, { setIsLoading })(App)
