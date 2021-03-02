@@ -4,7 +4,6 @@ const initialState = {
     allProducts: [],
     allProductsLoading: false,
     singleProduct: {},
-    singleProductLoading: false,
     error: ''
 };
 

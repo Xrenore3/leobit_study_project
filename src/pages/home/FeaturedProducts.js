@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import PrimaryButton from './../../components/globals/PrimaryButton';
 import { connect } from 'react-redux';
 
-const FeaturedProducts = ({allProducts}) => {
-    const threeProductsView = allProducts.filter((item,index)=>index<3);
+const FeaturedProducts = ({ allProducts }) => {
+    const threeProductsView = allProducts.filter((item, index) => index < 3);
     const products = threeProductsView.map(product => {
-        const { name, price,id  } = product
-        return <Product name={name} price={price} key={id} id={id}/>
+        const { name, price, id } = product
+        return <Product name={name} price={price} key={id} id={id} />
     })
     return (
         <Wrapper>
@@ -23,7 +23,7 @@ const FeaturedProducts = ({allProducts}) => {
                 {products}
             </div>
             <Link to='/products'>
-                <PrimaryButton title='all products'/>
+                <PrimaryButton title='all products' />
             </Link>
         </Wrapper>
     )
@@ -56,4 +56,4 @@ const Wrapper = styled.section`
 const mapStateToProps = (state) => ({
     allProducts: state.productsData.allProducts
 })
-export default connect(mapStateToProps,{})(FeaturedProducts)
+export default connect(mapStateToProps, {})(FeaturedProducts)

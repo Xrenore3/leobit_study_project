@@ -5,13 +5,13 @@ import ProductCards from './product-cards/ProductCardsContainer';
 import Footer from './../../components/Footer';
 import styled from 'styled-components';
 
-const Products = () => {
+const Products = ({ allProducts, allProductsLoading }) => {
     return (
         <>
             <Banner title='products' />
             <Wrapper>
                 <Filters />
-                <ProductCards />
+                <ProductCards allProducts={allProducts} allProductsLoading={allProductsLoading} />
             </Wrapper>
             <Footer />
         </>

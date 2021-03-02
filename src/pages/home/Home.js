@@ -5,13 +5,13 @@ import FeaturedProducts from './FeaturedProducts';
 import Subscribe from './Subscribe';
 import Preloader from '../../components/globals/Preloader';
 
-const Home = () => {
+const Home = ({ allProducts, allProductsLoading }) => {
 
     return (<>
-        {/* <Hero />
-        {false ? <Preloader /> : <FeaturedProducts />}
+        <Hero />
+        {allProductsLoading ? <Preloader /> : <FeaturedProducts allProducts={allProducts}  />}
         <Subscribe />
-        <Footer /> */}
+        <Footer />
     </>
 
     )
