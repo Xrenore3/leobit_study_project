@@ -4,7 +4,9 @@ import {
     GET_SINGLE_PRODUCT_SUCCESS,
     HANDLE_FETCH_ERROR,
     GET_PRODUCTS_SUCCESS,
-    SET_ALL_PRODUCTS_LOADING
+    SET_ALL_PRODUCTS_LOADING,
+    SET_PRODUCT_ID,
+    BEGIN_PRODUCT_REQUEST
 } from './products_types'
 
 
@@ -27,8 +29,17 @@ export const getSingleProductSuccess = (product) => ({
     type: GET_SINGLE_PRODUCT_SUCCESS,
     playload: product
 })
+export const setProductId = (id) => ({
+    type: SET_PRODUCT_ID,
+    id
+})
+
+//saga actions
 export const getAllProducts = () => ({
     type: BEGIN_ALL_PRODUCTS_REQUEST
+})
+export const getProductById = () => ({
+    type: BEGIN_PRODUCT_REQUEST
 })
 
 

@@ -3,17 +3,17 @@ import {
     GET_SINGLE_PRODUCT_SUCCESS,
     HANDLE_FETCH_ERROR,
     GET_PRODUCTS_SUCCESS,
-    SET_ALL_PRODUCTS_LOADING
+    SET_ALL_PRODUCTS_LOADING,
+    SET_PRODUCT_ID
 } from './products_types'
-import products from '../../assets/products_mock_data';
 import product from '../../assets/single_product_mock_data'
 const initialState = {
     allProducts: [],
     allProductsLoading: false,
-    singleProduct: { ...product },
+    singleProduct: {  },
     singleProductLoading: false,
     error: '',
-    id: 'rec1Ntk7siEEW9ha1'
+    productId: 'rec1Ntk7siEEW9ha1'
 };
 
 const products_reducer = (state = initialState, action) => {
@@ -28,10 +28,13 @@ const products_reducer = (state = initialState, action) => {
             return { ...state, error: action.playload }
         }
         case GET_SINGLE_PRODUCT_SUCCESS: {
-            return { ...state, singleProduct: action.playload, singleProductLoading: false }
+            return { ...state, singleProduct: action.playload, allProductsLoading: false }
         }
         case SET_PRODUCT_LOADING: {
             return { ...state, singleProductLoading: true }
+        }
+        case SET_PRODUCT_ID: {
+            return {...state, productId: action.id}
         }
         default:
             return state;

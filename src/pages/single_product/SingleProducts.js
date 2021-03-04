@@ -9,20 +9,21 @@ import { media } from './../../utils/styles';
 import { useEffect } from 'react';
 import ImageContainer from './ImageContainer';
 import Preloader from './../../components/globals/Preloader';
-import { getSingleProductSuccess, setProductLoading } from './../../redux/products/products_action';
+import { getSingleProductSuccess, setProductLoading, setProductId, getProductById } from './../../redux/products/products_action';
 import { connect } from 'react-redux';
 
-const SingleProducts = ({ singleProduct, allProductsLoading, getSingleProductSuccess }) => {
+const SingleProducts = ({ productId, singleProduct, allProductsLoading, getSingleProductSuccess, setProductId, getProductById }) => {
     const { id } = useParams();
-    const { name, price, images } = singleProduct;
+    const { name, price, images, company, description,stock } = singleProduct;
 
-    // useEffect(() => {
-    //     setProductLoading()
-    // }, [id]);
+    useEffect(() => {
+        setProductId(id)
+        getProductById(productId)
+    }, [id]);
 
     if (allProductsLoading) {
         return <Preloader />
-    }  
+    }
     return (<>
         <Banner title='product / name product' />
         <Wrapper>
@@ -37,20 +38,15 @@ const SingleProducts = ({ singleProduct, allProductsLoading, getSingleProductSuc
                     </h2>
                     <h5 className='price'>$ {price}</h5>
                     <p className='description'>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus ut dicta quibusdam
-                        autem. Fugiat perferendis accusantium hic. Veritatis, deserunt laborum, repudiandae ipsa
-                        repellendus beatae sapiente commodi magnam nostrum tenetur in.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias possimus corrupti ipsa,
-                        consequatur minima atque odio repellendus autem.
-                        Harum atque dolorum necessitatibus corrupti excepturi optio dolorem nulla quis non sunt?
-                </p>
+                        {description}
+                    </p>
                     <div className="info">
                         <h5>avaible:</h5>
-                        <p>out of stock</p>
+                        <p>{stock}</p>
                     </div>
                     <div className="info">
                         <h5>brand:</h5>
-                        <p>ikea</p>
+                        <p>{company}</p>
                     </div>
                     <hr />
                     <article >
@@ -79,6 +75,7 @@ const SingleProducts = ({ singleProduct, allProductsLoading, getSingleProductSuc
     )
 }
 const mapStateToProps = (state) => ({
+    productId: state.productsData.productId,
     singleProduct: state.productsData.singleProduct,
     allProductsLoading: state.productsData.allProductsLoading
 
@@ -178,4 +175,4 @@ const Wrapper = styled.main`
     `}
 `
 
-export default connect(mapStateToProps, { getSingleProductSuccess })(SingleProducts)
+export default connect(mapStateToProps, { getSingleProductSuccess, setProductId, getProductById })(SingleProducts)
