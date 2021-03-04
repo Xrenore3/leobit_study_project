@@ -9,17 +9,16 @@ import { media } from './../../utils/styles';
 import { useEffect } from 'react';
 import ImageContainer from './ImageContainer';
 import Preloader from './../../components/globals/Preloader';
-import { getSingleProductSuccess } from './../../redux/actions/products_action';
-import product from './../../assets/single_product_mock_data'
+import { getSingleProductSuccess, setProductLoading } from './../../redux/products/products_action';
 import { connect } from 'react-redux';
 
 const SingleProducts = ({ singleProduct, allProductsLoading, getSingleProductSuccess }) => {
     const { id } = useParams();
     const { name, price, images } = singleProduct;
 
-    useEffect(() => {
-        getSingleProductSuccess(product)
-    }, [id]);
+    // useEffect(() => {
+    //     setProductLoading()
+    // }, [id]);
 
     if (allProductsLoading) {
         return <Preloader />

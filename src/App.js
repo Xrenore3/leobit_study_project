@@ -8,16 +8,14 @@ import GlobalsStyles from './components/globals/GlobalsStyles';
 import { ThemeProvider } from "styled-components";
 import { mainTheme } from './utils/main_theme'
 import SingleProducts from './pages/single_product/SingleProducts';
-import productsFetchData from './assets/products_mock_data'
 import { useEffect } from 'react';
 import { connect } from "react-redux";
-import { setIsLoading } from './redux/actions/products_action';
+import { getAllProducts } from './redux/products/products_action';
 
-const App = ({ allProducts, allProductsLoading, setIsLoading }) => {
+const App = ({ allProducts, allProductsLoading, getAllProducts }) => {
 
   useEffect(() => {
-    console.log('hello from app')
-    setIsLoading()
+    getAllProducts()
   }, [])
 
   return (
@@ -51,4 +49,4 @@ const mapStateToProps = (state) => ({
   allProductsLoading: state.productsData.allProductsLoading
 })
 
-export default connect(mapStateToProps, { setIsLoading })(App)
+export default connect(mapStateToProps, { getAllProducts })(App)

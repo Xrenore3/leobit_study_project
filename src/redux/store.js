@@ -1,5 +1,5 @@
-import { applyMiddleware, combineReducers, createStore } from "redux";
-import productsReducer from './reducers/products_reducer'
+import { applyMiddleware, combineReducers, compose, createStore } from "redux";
+import productsReducer from './products/products_reducer'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from "./saga/saga";
 const reducers = combineReducers(
@@ -12,9 +12,10 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
     reducers,
-    applyMiddleware(sagaMiddleware), 
+    compose(applyMiddleware(sagaMiddleware),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    )
     /* preloadedState, */
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 sagaMiddleware.run(rootSaga)
 

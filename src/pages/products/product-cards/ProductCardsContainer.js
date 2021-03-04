@@ -3,7 +3,6 @@ import Product from './ProductCard';
 import styled from 'styled-components';
 import Preloader from '../../../components/globals/Preloader';
 import { connect } from 'react-redux';
-import { getAllProductsSuccess } from './../../../redux/reducers/products_reducer';
 
 const ProductCards = ({ allProducts, allProductsLoading }) => {
 
