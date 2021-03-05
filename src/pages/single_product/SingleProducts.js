@@ -9,19 +9,19 @@ import { media } from './../../utils/styles';
 import { useEffect } from 'react';
 import ImageContainer from './ImageContainer';
 import Preloader from './../../components/globals/Preloader';
-import { getSingleProductSuccess, setProductLoading, setProductId, getProductById } from './../../redux/products/products_action';
+import { getSingleProductSuccess, setProductId, getProductById } from './../../redux/products/products_action';
 import { connect } from 'react-redux';
 
-const SingleProducts = ({ productId, singleProduct, allProductsLoading, getSingleProductSuccess, setProductId, getProductById }) => {
+const SingleProducts = ({ productId, singleProduct, singleProductLoading, setProductId, getProductById }) => {
     const { id } = useParams();
-    const { name, price, images, company, description,stock } = singleProduct;
+    const { name, price, images, company, description, stock } = singleProduct;
 
     useEffect(() => {
         setProductId(id)
         getProductById(productId)
     }, [id]);
 
-    if (allProductsLoading) {
+    if (singleProductLoading) {
         return <Preloader />
     }
     return (<>
@@ -31,7 +31,7 @@ const SingleProducts = ({ productId, singleProduct, allProductsLoading, getSingl
                 <PrimaryButton title='back to products' />
             </Link>
             <div className="main-container">
-                <ImageContainer images={images} allProductsLoading={allProductsLoading} />
+                <ImageContainer images={images} />
                 <section className='info-container'>
                     <h2 >
                         {name}
@@ -74,12 +74,6 @@ const SingleProducts = ({ productId, singleProduct, allProductsLoading, getSingl
 
     )
 }
-const mapStateToProps = (state) => ({
-    productId: state.productsData.productId,
-    singleProduct: state.productsData.singleProduct,
-    allProductsLoading: state.productsData.allProductsLoading
-
-})
 
 const Wrapper = styled.main`
     width:90%;
@@ -174,5 +168,10 @@ const Wrapper = styled.main`
         }
     `}
 `
+const mapStateToProps = (state) => ({
+    productId: state.productsData.productId,
+    singleProduct: state.productsData.singleProduct,
+    singleProductLoading: state.productsData.singleProductLoading
 
+})
 export default connect(mapStateToProps, { getSingleProductSuccess, setProductId, getProductById })(SingleProducts)

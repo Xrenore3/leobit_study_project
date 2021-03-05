@@ -27,7 +27,7 @@ function* fetchAllProducts() {
 }
 function* fetchProduct() {
     try {
-        yield put(setAllProductsLoading())
+        yield put(setProductLoading())
         const id = yield select(getProductId)
         const response = yield axios.get(`${single_product_url}${id}`)
         yield put(getSingleProductSuccess(response.data))

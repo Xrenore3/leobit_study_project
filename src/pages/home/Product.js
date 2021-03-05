@@ -4,11 +4,11 @@ import styled from 'styled-components';
 import PrimaryButton from './../../components/globals/PrimaryButton';
 import { Link } from 'react-router-dom';
 
-function Product({ name, price, id }) {
+function Product({ name, price, id, image }) {
     return (
         <Wrapper>
             <div className="img-container">
-                <img src={productImg} alt='single room' />
+                <img src={image} alt='single room' />
                 <div className="price">${price}  </div>
             </div>
             <div className="room-info">

@@ -8,17 +8,15 @@ import {
 
 const initialState = {
     allProducts: [],
-    allProductsLoading: false,
     filtredProducts: [],
+    allProductsLoading: false,
     companies: [],
     categories: []
-
 }
 
 const filtersReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_PRODUCTS_SUCCESS: {
-            debugger
             return { ...state, allProducts: action.playload, allProductsLoading: false }
         }
         case SET_ALL_PRODUCTS_LOADING: {

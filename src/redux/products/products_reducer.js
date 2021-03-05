@@ -17,7 +17,7 @@ const products_reducer = (state = initialState, action) => {
             return { ...state, error: action.playload }
         }
         case GET_SINGLE_PRODUCT_SUCCESS: {
-            return { ...state, singleProduct: action.playload, allProductsLoading: false }
+            return { ...state, singleProduct: action.playload, singleProductLoading: false }
         }
         case SET_PRODUCT_LOADING: {
             return { ...state, singleProductLoading: true }
