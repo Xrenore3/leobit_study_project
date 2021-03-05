@@ -29,6 +29,3 @@ export const setAllCategories = (categories) => ({
 export const getAllProducts = () => ({
     type: BEGIN_ALL_PRODUCTS_REQUEST
 })
-export const getProductById = () => ({
-    type: BEGIN_PRODUCT_REQUEST
-})

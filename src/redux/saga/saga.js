@@ -5,9 +5,9 @@ import { getSingleProductSuccess, setProductLoading } from '../products/products
 import { setAllProductsLoading, getAllProductsSuccess } from './../products_filters/products_filters_actions';
 import { setAllCompanies, setAllCategories } from './../products_filters/products_filters_actions'
 import {
-    BEGIN_ALL_PRODUCTS_REQUEST,
-    BEGIN_PRODUCT_REQUEST
+    BEGIN_ALL_PRODUCTS_REQUEST
 } from './../products_filters/products_filters_types';
+import { BEGIN_PRODUCT_REQUEST } from './../products/products_types'
 
 const products_url = 'https://course-api.com/react-store-products';
 const single_product_url = `https://course-api.com/react-store-single-product?id=`;

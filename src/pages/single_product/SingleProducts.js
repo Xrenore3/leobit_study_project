@@ -9,15 +9,16 @@ import { media } from './../../utils/styles';
 import { useEffect } from 'react';
 import ImageContainer from './ImageContainer';
 import Preloader from './../../components/globals/Preloader';
-import { getSingleProductSuccess, setProductLoading, setProductId } from './../../redux/products/products_action';
+import { getSingleProductSuccess, setProductLoading, setProductId, getProductById } from './../../redux/products/products_action';
 import { connect } from 'react-redux';
 
-const SingleProducts = ({ productId, singleProduct, allProductsLoading, getSingleProductSuccess, setProductId }) => {
+const SingleProducts = ({ productId, singleProduct, allProductsLoading, getSingleProductSuccess, setProductId, getProductById }) => {
     const { id } = useParams();
     const { name, price, images, company, description,stock } = singleProduct;
 
     useEffect(() => {
         setProductId(id)
+        getProductById(productId)
     }, [id]);
 
     if (allProductsLoading) {
@@ -174,4 +175,4 @@ const Wrapper = styled.main`
     `}
 `
 
-export default connect(mapStateToProps, { getSingleProductSuccess, setProductId })(SingleProducts)
+export default connect(mapStateToProps, { getSingleProductSuccess, setProductId, getProductById })(SingleProducts)
