@@ -1,7 +1,15 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const Filters = () => {
+const Filters = ({ categories, companies }) => {
+    
+    const categoriesList = categories.map((category, index) => {
+        return <li key={index + category}>{category}</li>
+    })
+    const companiesList = companies.map((company, index) => {
+        return <option value={company} key={index + company}>{company}</option>
+    })
+
     return (
         <Wrapper>
             <form >
@@ -11,21 +19,13 @@ const Filters = () => {
                 <div className="form-general">
                     <h5>category</h5>
                     <ul>
-                        <li>some</li>
-                        <li>some</li>
-                        <li>some</li>
-                        <li>some</li>
-                        <li>some</li>
+                        {categoriesList}
                     </ul>
                 </div>
                 <div className="form-general">
                     <h5>company</h5>
                     <select name="company" className='form-company'>
-                        <option value="some company">some company</option>
-                        <option value="some company">some company</option>
-                        <option value="some company">some company</option>
-                        <option value="some company">some company</option>
-                        <option value="some company">some company</option>
+                        {companiesList}
                     </select>
                 </div>
             </form>
@@ -41,32 +41,34 @@ const Wrapper = styled.section`
     margin-left:20px;
     .form-general {
         margin:20px 0 20px;
+        ul {
+        margin-top:5px;
+        }
+        li {
+        padding-top:5px;
+        list-style-type:none;
+        margin-left:5px;
+        ${props => props.theme.setTransition()};
+        &:hover{
+            padding-left:10px;
+            ${props => props.theme.setTransition()};
+        }
     }
     .search-input {
         padding:10px;
         border-color:transparent;
-        background: ${props=>props.theme.mainGrey};
+        background: ${props => props.theme.mainGrey};
         letter-spacing: 1px;
         border-radius:3px;
     }
-    ul {
-        margin-top:5px;
-    }
-    li {
-        list-style-type:none;
-        margin-left:5px;
-        ${props=>props.theme.setTransition()};
-        &:hover{
-            padding-left:10px;
-            ${props=>props.theme.setTransition()};
-        }
+    
 
     }
     .form-company {
         margin-top:10px;
         padding:5px;
         border-color:transparent;
-        background: ${props=>props.theme.mainGrey};
+        background: ${props => props.theme.mainGrey};
         letter-spacing: 1px;
         border-radius:3px;
     }
@@ -74,9 +76,9 @@ const Wrapper = styled.section`
         cursor:pointer;
         border-color:transparent;
         border-radius: 3px;
-        color: ${props=>props.theme.mainWhite};
+        color: ${props => props.theme.mainWhite};
         letter-spacing: 2px;
-        background: ${props=>props.theme.primaryColor};
+        background: ${props => props.theme.primaryColor};
         font-size: 1rem;
         padding:5px 10px;
     }

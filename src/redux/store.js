@@ -1,10 +1,12 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import productsReducer from './products/products_reducer'
+import filtersReducer from './products_filters/products_filters_reducer'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from "./saga/saga";
 const reducers = combineReducers(
     {
-        productsData: productsReducer
+        productsData: productsReducer,
+        filtersData: filtersReducer
     }
 );
 const sagaMiddleware = createSagaMiddleware();
