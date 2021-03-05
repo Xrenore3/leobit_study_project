@@ -9,7 +9,7 @@ const FeaturedProducts = ({ allProducts }) => {
     const threeProductsView = allProducts.filter((item, index) => index < 3);
     const products = threeProductsView.map(product => {
         const { name, price, id } = product
-        return <Product name={name} price={price} key={id} id={id} />
+        return <Product name={name} price={price} key={id+name} id={id} />
     })
     return (
         <Wrapper>
@@ -53,7 +53,5 @@ const Wrapper = styled.section`
     }
 `
 
-const mapStateToProps = (state) => ({
-    allProducts: state.productsData.allProducts
-})
-export default connect(mapStateToProps, {})(FeaturedProducts)
+
+export default FeaturedProducts

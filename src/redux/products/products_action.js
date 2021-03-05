@@ -10,13 +10,7 @@ import {
 } from './products_types'
 
 
-export const setAllProductsLoading = () => ({
-    type: SET_ALL_PRODUCTS_LOADING
-})
-export const getAllProductsSuccess = (products) => ({
-    type: GET_PRODUCTS_SUCCESS,
-    playload: products
-})
+
 export const handleFetchError = (error) => ({
     type: HANDLE_FETCH_ERROR,
     playload: error
@@ -34,13 +28,7 @@ export const setProductId = (id) => ({
     id
 })
 
-//saga actions
-export const getAllProducts = () => ({
-    type: BEGIN_ALL_PRODUCTS_REQUEST
-})
-export const getProductById = () => ({
-    type: BEGIN_PRODUCT_REQUEST
-})
+
 
 
 

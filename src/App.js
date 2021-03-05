@@ -10,7 +10,7 @@ import { mainTheme } from './utils/main_theme'
 import SingleProducts from './pages/single_product/SingleProducts';
 import { useEffect } from 'react';
 import { connect } from "react-redux";
-import { getAllProducts } from './redux/products/products_action';
+import { getAllProducts } from './redux/products_filters/products_filters_actions';
 
 const App = ({ allProducts, allProductsLoading, getAllProducts }) => {
 
@@ -45,8 +45,8 @@ const App = ({ allProducts, allProductsLoading, getAllProducts }) => {
 }
 
 const mapStateToProps = (state) => ({
-  allProducts: state.productsData.allProducts,
-  allProductsLoading: state.productsData.allProductsLoading
+  allProducts: state.filtersData.allProducts,
+  allProductsLoading: state.filtersData.allProductsLoading
 })
 
 export default connect(mapStateToProps, { getAllProducts })(App)

@@ -1,12 +1,13 @@
 import axios from 'axios';
 import { put, takeEvery, all, takeLatest, select, take } from 'redux-saga/effects';
 import { getProductId } from '../products/products.selectors';
-import { setAllProductsLoading, getAllProductsSuccess, getSingleProductSuccess, setProductLoading } from '../products/products_action';
-import { setAllCompanies,setAllCategories } from './../products_filters/products_filters_actions'
+import { getSingleProductSuccess, setProductLoading } from '../products/products_action';
+import { setAllProductsLoading, getAllProductsSuccess } from './../products_filters/products_filters_actions';
+import { setAllCompanies, setAllCategories } from './../products_filters/products_filters_actions'
 import {
     BEGIN_ALL_PRODUCTS_REQUEST,
     BEGIN_PRODUCT_REQUEST
-} from './../products/products_types';
+} from './../products_filters/products_filters_types';
 
 const products_url = 'https://course-api.com/react-store-products';
 const single_product_url = `https://course-api.com/react-store-single-product?id=`;
@@ -41,13 +42,11 @@ function* setFilterData(products) {
     const categories = yield products.map(product => product.category)
     yield put(setAllCompanies(new Set(companies)))
     yield put(setAllCategories(new Set(categories)))
-
 }
 
 function* watchFetchAllProducts() {
     yield takeEvery(BEGIN_ALL_PRODUCTS_REQUEST, fetchAllProducts)
     yield takeEvery(BEGIN_PRODUCT_REQUEST, fetchProduct)
-
 }
 
 

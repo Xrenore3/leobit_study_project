@@ -1,3 +1,9 @@
 export const SET_ALL_COMPANIES = 'SET_ALL_COMPANIES/filters'
 export const SET_ALL_CATEGORIES = 'SET_ALL_CATEGORIES/filters'
+export const SET_ALL_PRODUCTS_LOADING = 'SET_ALL_PRODUCTS_LOADING/products'
+export const GET_PRODUCTS_SUCCESS = 'GET_PRODUCTS_SUCCESS/products'
 
+
+//saga types
+export const BEGIN_ALL_PRODUCTS_REQUEST = 'BEGIN_ALL_PRODUCTS_REQUEST/products'
+export const BEGIN_PRODUCT_REQUEST = 'BEGIN_PRODUCT_REQUEST/products'

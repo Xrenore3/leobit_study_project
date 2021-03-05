@@ -6,14 +6,12 @@ import Subscribe from './Subscribe';
 import Preloader from '../../components/globals/Preloader';
 
 const Home = ({ allProducts, allProductsLoading }) => {
-
     return (<>
         <Hero />
-        {allProductsLoading ? <Preloader /> : <FeaturedProducts allProducts={allProducts}  />}
+        {allProductsLoading ? <Preloader /> : <FeaturedProducts allProducts={allProducts} />}
         <Subscribe />
         <Footer />
     </>
-
     )
 }
 
