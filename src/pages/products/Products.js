@@ -5,14 +5,21 @@ import ProductCards from './product-cards/ProductCardsContainer';
 import Footer from './../../components/Footer';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { setFilterByCompany } from './../../redux/products_filters/products_filters_actions';
 
-const Products = ({ allProducts, allProductsLoading, categories, companies }) => {
+const Products = ({ allProducts, allProductsLoading, categories, companies, filteredCompany, setFilterByCompany }) => {
     return (
         <>
-            <Banner title='products'  />
+            <Banner title='products' />
             <Wrapper>
-                <Filters categories={categories} companies={companies} />
-                <ProductCards allProducts={allProducts} allProductsLoading={allProductsLoading} />
+                <Filters
+                    categories={categories}
+                    companies={companies}
+                    filteredCompany={filteredCompany}
+                    setFilterByCompany={setFilterByCompany} />
+                <ProductCards
+                    allProducts={allProducts}
+                    allProductsLoading={allProductsLoading} />
             </Wrapper>
             <Footer />
         </>
@@ -25,7 +32,10 @@ const Wrapper = styled.section`
 `
 const mapStateToProps = (state) => ({
     categories: state.filtersData.categories,
-    companies: state.filtersData.companies
+    companies: state.filtersData.companies,
+    filteredCompany: state.filtersData.filteredCompany
+
+
 })
 
-export default connect(mapStateToProps, {})(Products)
+export default connect(mapStateToProps, { setFilterByCompany })(Products)

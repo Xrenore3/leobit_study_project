@@ -36,12 +36,12 @@ function* fetchProduct() {
     }
 }
 
-// filters 
+// add  filters data to state 
 function* setFilterData(products) {
     const companies = yield products.map(product => product.company)
     const categories = yield products.map(product => product.category)
-    yield put(setAllCompanies(new Set(companies)))
-    yield put(setAllCategories(new Set(categories)))
+    yield put(setAllCompanies(['all',...new Set(companies)]))
+    yield put(setAllCategories(['all',...new Set(categories)]))
 }
 
 function* watchFetchAllProducts() {

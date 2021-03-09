@@ -45,7 +45,7 @@ const App = ({ allProducts, allProductsLoading, getAllProducts }) => {
 }
 
 const mapStateToProps = (state) => ({
-  allProducts: state.filtersData.allProducts,
+  allProducts: state.filtersData.filtredProducts,
   allProductsLoading: state.filtersData.allProductsLoading
 })
 

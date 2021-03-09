@@ -1,14 +1,18 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const Filters = ({ categories, companies }) => {
-    
+const Filters = ({ categories, companies, filteredCompany, setFilterByCompany }) => {
+    const handleCompanyChange = (e) => {
+        setFilterByCompany(e.target.value)
+    }
+
     const categoriesList = categories.map((category, index) => {
         return <li key={index + category}>{category}</li>
     })
     const companiesList = companies.map((company, index) => {
         return <option value={company} key={index + company}>{company}</option>
     })
+    
 
     return (
         <Wrapper>
@@ -24,7 +28,7 @@ const Filters = ({ categories, companies }) => {
                 </div>
                 <div className="form-general">
                     <h5>company</h5>
-                    <select name="company" className='form-company'>
+                    <select value={filteredCompany} className='form-company' onChange={handleCompanyChange} >
                         {companiesList}
                     </select>
                 </div>

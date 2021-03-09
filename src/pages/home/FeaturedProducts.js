@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 const FeaturedProducts = ({ allProducts }) => {
     const threeProductsView = allProducts.filter((item, index) => index < 3);
     const products = threeProductsView.map(product => {
-        console.log(product)
         const { name, price, id, image } = product
         return <Product name={name} price={price} key={id + name} id={id} image={image} />
     })
