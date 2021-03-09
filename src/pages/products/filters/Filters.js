@@ -1,18 +1,28 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const Filters = ({ categories, companies, filteredCompany, setFilterByCompany }) => {
+const Filters = ({ categories, companies, filteredCompany, setFilterByCompany, setFilterByCategory }) => {
     const handleCompanyChange = (e) => {
         setFilterByCompany(e.target.value)
     }
+    const handleCategoryChange = (category) => {
+        setFilterByCategory(category)
+    }
 
     const categoriesList = categories.map((category, index) => {
-        return <li key={index + category}>{category}</li>
+        return <li key={index + category}
+            onClick={() => {
+                handleCategoryChange(category)
+            }}>{category}</li>
     })
     const companiesList = companies.map((company, index) => {
-        return <option value={company} key={index + company}>{company}</option>
+        return <option
+            value={company}
+            key={index + company}>
+            {company}
+        </option>
     })
-    
+
 
     return (
         <Wrapper>

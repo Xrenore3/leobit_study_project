@@ -4,7 +4,8 @@ import {
     GET_PRODUCTS_SUCCESS,
     SET_ALL_PRODUCTS_LOADING,
     BEGIN_ALL_PRODUCTS_REQUEST,
-    SET_FILTER_BY_COMPANY
+    SET_FILTER_BY_COMPANY,
+    SET_FILTER_BY_CATEGORY
 } from './products_filters_types'
 
 export const setAllProductsLoading = () => ({
@@ -27,6 +28,11 @@ export const setFilterByCompany = (company) => ({
     type: SET_FILTER_BY_COMPANY,
     company
 })
+export const setFilterByCategory = (category) => ({
+    type: SET_FILTER_BY_CATEGORY,
+    category
+})
+
 
 //saga actions
 export const getAllProducts = () => ({

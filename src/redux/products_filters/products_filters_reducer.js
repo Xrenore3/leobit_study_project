@@ -3,7 +3,8 @@ import {
     SET_ALL_CATEGORIES,
     GET_PRODUCTS_SUCCESS,
     SET_ALL_PRODUCTS_LOADING,
-    SET_FILTER_BY_COMPANY
+    SET_FILTER_BY_COMPANY,
+    SET_FILTER_BY_CATEGORY
 } from './products_filters_types'
 
 
@@ -14,7 +15,7 @@ const initialState = {
     companies: [],
     categories: [],
     filteredCompany: '',
-    filterredCategory: ''
+    filteredCategory: ''
 }
 
 const filtersReducer = (state = initialState, action) => {
@@ -36,11 +37,23 @@ const filtersReducer = (state = initialState, action) => {
             if (action.company === 'all') {
                 newFiltredProducts = state.allProducts
             } else {
-                newFiltredProducts = [...state.allProducts.filter(product => product.company === action.company)]
+                newFiltredProducts = [...state.filtredProducts.filter(product => product.company === action.company)]
             }
             return {
                 ...state, filtredProducts: [...newFiltredProducts],
                 filteredCompany: action.company
+            }
+        }
+        case SET_FILTER_BY_CATEGORY: {
+            let newFiltredProducts = [];
+            if (action.category === 'all') {
+                newFiltredProducts = state.allProducts
+            } else {
+                newFiltredProducts = [...state.allProducts.filter(product => product.category === action.category)]
+            }
+            return {
+                ...state, filtredProducts: [...newFiltredProducts],
+                filteredCategory: action.category
             }
         }
         default: {

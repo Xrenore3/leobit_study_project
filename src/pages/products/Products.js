@@ -5,9 +5,17 @@ import ProductCards from './product-cards/ProductCardsContainer';
 import Footer from './../../components/Footer';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { setFilterByCompany } from './../../redux/products_filters/products_filters_actions';
+import { setFilterByCompany, setFilterByCategory } from './../../redux/products_filters/products_filters_actions';
 
-const Products = ({ allProducts, allProductsLoading, categories, companies, filteredCompany, setFilterByCompany }) => {
+const Products = ({
+    allProducts,
+    allProductsLoading,
+    categories,
+    companies,
+    filteredCompany,
+    filteredCategory,
+    setFilterByCompany,
+    setFilterByCategory }) => {
     return (
         <>
             <Banner title='products' />
@@ -16,7 +24,9 @@ const Products = ({ allProducts, allProductsLoading, categories, companies, filt
                     categories={categories}
                     companies={companies}
                     filteredCompany={filteredCompany}
-                    setFilterByCompany={setFilterByCompany} />
+                    filteredCategory={filteredCategory}
+                    setFilterByCompany={setFilterByCompany}
+                    setFilterByCategory={setFilterByCategory} />
                 <ProductCards
                     allProducts={allProducts}
                     allProductsLoading={allProductsLoading} />
@@ -33,9 +43,10 @@ const Wrapper = styled.section`
 const mapStateToProps = (state) => ({
     categories: state.filtersData.categories,
     companies: state.filtersData.companies,
-    filteredCompany: state.filtersData.filteredCompany
+    filteredCompany: state.filtersData.filteredCompany,
+    filteredCategory: state.filtersData.filteredCategory
 
 
 })
 
-export default connect(mapStateToProps, { setFilterByCompany })(Products)
+export default connect(mapStateToProps, { setFilterByCompany, setFilterByCategory })(Products)

@@ -9,7 +9,7 @@ function Product({ name, price, id, image }) {
         <Wrapper>
             <div className="img-container">
                 <img src={image} alt='single room' />
-                <div className="price">${price}  </div>
+                <div className="price">$ {price} </div>
             </div>
             <div className="room-info">
                 <h4>{name}</h4>
@@ -47,6 +47,8 @@ const Wrapper = styled.article`
             width:100%;
             ${props => props.theme.setTransition};
             display:block;
+            object-fit: cover;
+            height:250px;
             &:hover {
             opacity:0.5;
             }
